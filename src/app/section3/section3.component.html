@@ -1,0 +1,82 @@
+<div >
+    <br>
+    <h2 >Section 3. Angular Fundamentals</h2>
+    <br>
+    <h3 class= "h3indent">31. Building Blocks of Angular Apps </h3>
+    <ul class="nobullet">
+      <li>The main building block of Angular is a component.  A component encapsulates the data: HTML template, and Logic for a section of the screen.</li>
+      <li>An app has a root component or App component.</li>
+      <li>Angular has at least 1 module (called app.module.ts)</li>
+      <li>Modules are a way to group similar components into one item.</li>
+    </ul>
+
+    <h3 class= "h3indent">32. Components </h3>
+    <ul class="nobullet">
+      <li>Steps to create a component. 1. create the component, 2. Register the component, 3. Add an element in the html markup </li>
+      <li>The naming convention for a component is your-name.component.ts where yourname is the name of this component.  Names with multiple words should be separated with a hypen.</li>
+      <li>Components use pascal naming convention... every word is caplitalized. ie:  CourseComponent</li>
+      <li>Items needed in the component:  import @angular/core.  Use the @Component decorator.  this is an object where you can define the </li>
+      <li>selector:, template: (or templateURL), style: (or styleURLs: [])</li>
+      <li>As above in the typescript example you need to export the class component</li>
+      <li>After creating the component you need to register the component in app.module.ts.  Import your component and add to the declarations section of the file. </li>
+      <li>*** a handy plug-in is auto import.  this will import the file as you declare your component.</li>
+      <li>To use this component add the selector to the calling .html file. </li>
+      <li></li>
+    </ul>
+
+    <h3 class= "h3indent">33. Generating Components using Angular CLI </h3>
+    <ul class="nobullet">
+      <li>To simplify component creation you can use the angular cli tool</li>
+      <li>to create a course component type:  ng g c course</li>
+      <li>Angular cli will create a folder called course, and in it create the .css .html, .spec.ts and .ts files</li>
+      <li>It will also update app.module.ts to use your new component</li>
+
+    </ul>
+
+    <h3 class= "h3indent">34. Templates </h3>
+    <ul class="nobullet">
+      <li>Displays the html mark up.  You can use values from the component using interpolation.  Surround the variable with 2 curly braces.</li>
+      <li>Anything can be put between the double curly braces.</li>
+    </ul>
+
+    <h3 class= "h3indent">35. Directives </h3>
+    <ul class="nobullet">
+      <li>Directives allow for conditioning input in the html</li>
+      <li>Use an * when modifying the structure of the DOM. ie: *ngFor</li>
+      <li>See Example below:</li>
+      <img class="imagedisplay" src="../../assets/35-1.PNG">
+    </ul>
+
+    <h3 class= "h3indent">36. Services </h3>
+    <ul class="nobullet">
+      <li>Use services to move the process of getting data into its own file. this should not be the responsibility of the component.</li>
+      <li>To create a service name as:   your-service.service.ts</li>
+      <li>Services do not have a type decorator.  the are simply an exported class</li>
+      <li>In our example we simply create a method that returns the courses. eg: getCourses() return courses = [ ... ]</li>
+      <li> </li>
+    </ul>
+
+    <h3 class= "h3indent">37. Dependency Injection </h3>
+    <ul class="nobullet">
+      <li>Dependency injection is an Angular framework for creating an instance of an object at run time.  This method decouples the method from the component.</li>
+      <li>A singleton instance is used through out the entire program.  Angular requires that this dependency be register in app module.</li>
+      <li>Look at the following example: the constructor creates an instance of the courseService. </li>
+      <img class="imagedisplay" src="../../assets/37-1.PNG">
+      <li>In order for this to work you need to register the service as providers</li>
+      <img class="imagedisplay" src="../../assets/37-2.PNG">
+    </ul>
+
+    <h3 class= "h3indent">38. Generating Services using Angular CLI </h3>
+    <ul class="nobullet">
+      <li>To create a service using angular cli:</li>
+      <li>type:  ng g s your-service</li>
+      <li>This creates 2 files, your-service.service.ts and your-service.spec.ts.  Note: the service has not been registered in the providers of the app.module.ts file</li>
+      <li>The generator adds the Injectable module.  this would only be needed if you have depenencies in your constructor of your service.</li>
+      <li>Otherwise this can be taken out.  btw:  the Injectable decorator isn't needed for components. It is a part of the Component decorator.</li>
+      
+    </ul>
+
+    <h3 class= "h3indent">Assignment: List of Authors </h3>
+    <ul class="nobullet">
+      <li></li>
+    </ul>

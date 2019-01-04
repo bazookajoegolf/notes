@@ -1,0 +1,79 @@
+<h2> Section 1 - Introduction</h2>
+<br>
+<h3 class= "h3indent">2. What is Angular. </h3>
+<ul class="nobullet">
+  <li>It's a framework for building javascript / Typescript apps. Makes things easier, creates structure, easier to test</li>
+  <li></li>
+</ul>
+<h3 class= "h3indent">3. angular is a frontend app.</h3>
+<ul class="nobullet">
+  <li>Generates html, css, Typescript, Angular. Data is not stored in angular, the data is store in the back end.</li>
+  <li>Use http to get to the api backend. Data and business logic is in the backend, front is for Presentation logic</li>
+</ul>
+<h3 class= "h3indent">4. What's needed to build an Angular </h3>
+<ul class="nobullet">
+  <li>To build an Angular App you need NPM, to get install the latest version of NODE (nodejs.org).  Min version 6.5 for node. </li>
+  <li>type:   npm install -g @angular/cli  :  You may need to precede with sudo if on linux. To check the version type ng --version</li>
+</ul>
+
+<h3 class= "h3indent">5. Create your first app.</h3>
+<ul class="nobullet">
+  <li>type:   ng new yourprojectname</li>
+  <li>type:   ng serve --host 10.27.10.152  (your ip address.  If you don't include the host setting you will only be able to access from the local machine)</li>
+</ul>
+<h3 class= "h3indent">6. files and folders created in project</h3>
+
+<ul class="nobullet">
+  <li>e2e folder:  Stands for end to end.  Create automated tests here. </li>
+  <li>node_modules folder:  Stores 3rd party libraries.  used only for dev.  the build process only takes stuff needed from this folder</li>
+  <li>src folder:  Contains all the source code.</li>
+  <li>Assets folder:  Store assests such as images or icons etc.</li>
+  <li>Environments folder:  has 2 folders one for prod and one for dev.  contains environment information </li>
+  <li>favicon.ico is tab icon</li>
+  <li>index.html.  is the starting point for the Angular app.  the main app directive is inserted here.</li>
+  <li>main.ts IS the starting point of the application. the file bootstraps the main app </li>
+  <li>polyfill.ts  used to bridge the gap between javascript and typescript</li>
+  <li>styles.css use to store global style settings</li>
+  <li>package.json  Here is where the prod and dev dependencies list is kept.  Can start scripts from here, etc.</li>
+  <li>tsconfig.json  Used by the typescript compiler to build the Angular app to javascript.  One key setting is target. </li>
+</ul>
+
+<h3 class= "h3indent">7. Webpack</h3>
+<ul class="nobullet">
+  <li>Webpack is the tool that takes the source code and creates javascript bundles. files such as polyfills.bundle.js, main.bundle.js, styles.bundle.js, vendor.bundle.js, inline.bundle.js</li>
+  <li>Webpack does Hot Module Replacement.  it only changes items that have been modified.</li>
+  <li></li>
+</ul>
+<h3 class= "h3indent">8. Angular version history</h3>
+<ul class="nobullet">
+  <li>2010, AngularJS was born a bit complicated.</li>
+  <li>2016, Angular 2 came out using typescript. Not compatible with Angular JS</li>
+  <li>Versions went from 2.1, 2.2, 2.4 then jumped to 4.  This was to align library versions.  The router was on v3.3 -therefore Angular skipped 3 and went to 4.</li>
+  <li>Now the framework is simply referred to as simply Angular</li>
+</ul>
+
+<h3 class= "h3indent">9. Course Structure</h3>
+<ul class="nobullet">
+  <li>3 parts. The essentials such as typescript and object oriented programming. fundamentals, displaying data, handling events, components, directives, forms.</li>
+  <li>consuming HTTP services, routing and navigation, authentication and authorization, deployment and building an app with firebase</li>
+  <li>Versions went from 2.1, 2.2, 2.4 then jumped to 4.  This was to align library versions.  The router was on v3.3 -therefore Angular skipped 3 and went to 4.</li>
+  <li>Advanced topics:  animations, materials, redux, unit testing, integration testing</li>
+  <li>Final Project:  Building the final app</li>
+  <li>If time constrained, skip reactive forms.</li>
+</ul>
+
+
+<ul class="nobullet">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>

@@ -1,0 +1,90 @@
+<br>
+<h2 >Section 8. Reactive Forms</h2>
+<br>
+
+<h3 class= "h3indent">91. Building a Bootstrap Form  </h3>
+<ul class="nobullet">
+<li>In the example we're using a basic form as below: </li>
+<img class="imagedisplay" src="../../assets/91-1.PNG">
+</ul>
+
+<h3 class= "h3indent">92. Creating Contrls Programmatically </h3>
+<ul class="nobullet">
+<li>In order to use FormGroups and FormControls Programmatically you need to import the Components from @angular/forms</li>
+<li>To generate a  FormGroup object you need to pass a key value pair of type AbstractControl.  AbstractControl 
+  is the parent Component of FormGroup and FormControl (these inherit from AbstractControl.) </li>
+  <li>You also have to add ReactiveformsModule to the imports array in app.module.ts  </li>
+<li>Create a reactive as below:</li>
+<img class="imagedisplay" src="../../assets/92-1.PNG">
+<li>The form requires a [formGroup] directive.  You associate this form with the form you built in the component (above).</li>
+<li>To associate the form with the Inputs in the html you add the formControlName="username".  Do the same for the password input.</li>
+<img class="imagedisplay" src="../../assets/92-2.PNG">
+<li></li>
+</ul>
+
+
+<h3 class= "h3indent">93. Adding Validation</h3>
+<ul class="nobullet">
+<li>Validation is handle in the component.  You have to import the Validators from @angular/forms </li>
+<li>Validators are generated in the FormControl (second parameter, 3rd param are the async validators.  The validator parameter can be a function or an array of functions.</li>
+<li>The builtin types are Validators.required  .minlength  .maxlength  .email  .pattern</li>
+<li>In the example below you'll notice that we don't have to create an instance of Validators we simply reference it.  This can be done since it is a static method</li>
+<img class="imagedisplay" src="../../assets/93-1.PNG">
+<li></li>
+</ul>
+
+<h3 class= "h3indent">94. Specific Validation Errors. </h3>
+<ul class="nobullet">
+<li> </li>
+</ul>
+
+<h3 class= "h3indent">95. Implementing Custom Validation </h3>
+<ul class="nobullet">
+<li> </li>
+</ul>
+
+<h3 class= "h3indent">96. Asynchronous Operations </h3>
+<ul class="nobullet">
+<li> </li>
+</ul>
+
+<h3 class= "h3indent">97. Asynchronous Validators </h3>
+<ul class="nobullet">
+<li> </li>
+</ul>
+
+<h3 class= "h3indent">98. Showing a Loader Image </h3>
+<ul class="nobullet">
+<li> </li>
+</ul>
+
+<h3 class= "h3indent">99. Validating the Form Input Upon Submit </h3>
+<ul class="nobullet">
+<li> </li>
+</ul>
+
+<h3 class= "h3indent">100. Nested Form Groups </h3>
+<ul class="nobullet">
+<li> </li>
+</ul>
+
+<h3 class= "h3indent">101. FormArray </h3>
+<ul class="nobullet">
+<li> </li>
+</ul>
+
+<h3 class= "h3indent">102. FormBuilder </h3>
+<ul class="nobullet">
+<li> </li>
+</ul>
+
+<h3 class= "h3indent">103. Quick Recap </h3>
+<ul class="nobullet">
+<li> </li>
+</ul>
+
+<h3 class= "h3indent">Assignment: Change Password Form </h3>
+<ul class="nobullet">
+ <app-section8-lab></app-section8-lab>
+<li> </li>
+</ul>

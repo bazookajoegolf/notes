@@ -1,0 +1,116 @@
+<br>
+<h2 >Section 4. Displaying Data and Handling Events</h2>
+<br>
+
+<h3 class= "h3indent">40. Property Binding </h3>
+<ul class="nobullet">
+  <li>Interpolation that we used above is a form of property binding.  Below you can see examples of both interpolation and property binding</li>
+  <li>It is recommended that we use interpolation when you are adding text between tags and property binding when manipulating tag properties. See Example below.</li>
+  <img class="imagedisplay" src="../../assets/40-1.PNG">
+  <li>Property binding are one way from the component to the DOM only.</li>
+</ul>
+
+<h3 class= "h3indent">41. Attribute Binding </h3>
+<ul class="nobullet">
+  <li>For 99% of the cases attribute binding will work the same as property binding.  For the odd case, such as colspan, which isn't a property</li>
+  <li>To solve the problem you need to prefix with attr.  This targets the attribute </li>
+  <img class="imagedisplay" src="../../assets/41-1.PNG">
+  <li></li>
+</ul>
+
+<h3 class= "h3indent">42.  Adding Bootstrap </h3>
+<ul class="nobullet">
+  <li>To add bootstrap to your project in install the npm package and inport it into the styles.css</li>
+  <li>To install npm i bootstrap --save.  the --save adds bootstrap to the list of dependencies in package.json</li>
+  <li>in Package.json you will notice listings with ^ proceding.  This indicates that you can use the latest major release. Versions are defined as major.minor.patch.</li>
+  <li>In styles add the line @import "~/bootstrap/dist/bootstarp.css"</li>
+  <li><After saving you see that the styles.bundle.js file has increased in size to accommodate the bootstrap file. /li>
+</ul>
+
+<h3 class= "h3indent">43. Class Binding  </h3>
+<ul class="nobullet">
+  <li>You can add classes based on the state of your app.  To do this you can use class binding</li>
+  <li>Inside the tag you want to modify you can add [class.active] = "isActive"   where isActive is a boolean in our app.</li>
+  <li>you can use anything as long as it is valid.... ie:   [class.mycolor] = "activeMycolor" where mycolor is a css class </li>
+</ul>
+
+<h3 class= "h3indent">44. Style Binding </h3>
+<ul class="nobullet">
+  <li>Similar to Class binding except you user [style.color] = "isActive ? 'blue' : 'white'"</li>
+
+</ul>
+
+<h3 class= "h3indent">45. Event Binding </h3>
+<ul class="nobullet">
+  <li>Event binding works the opposite direction.  It goes from the DOM to the component.  Some events are click, keyup, change, etc.</li>
+  <li>You can get access to all events.  You would pass the $event object </li>
+  <li>See Example Below:</li>
+  <img class="imagedisplay" src="../../assets/45-1.PNG">
+  <li>Events will bubble up the entire DOM tree unless the default behavior is blocked.  This is called eventBubbling</li>
+  <li>To prevent, add $event.stopPropagation() in your calling method</li>
+  <img class="imagedisplay" src="../../assets/45-2.PNG">
+</ul>
+
+<h3 class= "h3indent">46. Event Filtering </h3>
+<ul class="nobullet">
+  <li>An old method to filter events would have the programmer listen for an event and if a condition of the event was met he would program something.</li>
+  <img class="imagedisplay" src="../../assets/46-1.PNG">
+  <li>Angular has a simplified method to listen for filtered events</li>
+  <img class="imagedisplay" src="../../assets/46-2.PNG">
+</ul>
+
+<h3 class= "h3indent">47. Template Variables </h3>
+<ul class="nobullet">
+  <li>Are a handy way to get the value that is  part of the tag you are dealing with.  you simply add a #yourvariable in the tag.</li>
+  <li>You can then reference it in the rest of the tag for things such as events. See below, the #email variable's value is passed to the onKeyUp method after enter is hit</li>
+  <img class="imagedisplay" src="../../assets/47-1.PNG">
+</ul>
+
+<h3 class= "h3indent">48. Two Way Binding </h3>
+<ul class="nobullet">
+  <li>Is a way to go from the component to the DOM and the DOM to the component</li>
+  <li>The example below has a variable email that is two-way binded with the ngModel keyword.</li>
+  <li>The value of email will go from the component to the DOM and back</li>
+  <li>In order to use ngModel you need to import FormsModule from @angular/forms in app.module.ts. You need to add FormsModule to the imports section.</li>
+  <img class="imagedisplay" src="../../assets/48-1.PNG">
+</ul>
+
+<h3 class= "h3indent">49. Pipes </h3>
+<ul class="nobullet">
+  <li>Pipes are used to format data.  Builtin pipes are Uppercase, Lowercase, Decimal, Currency, Percent.</li>
+  <li>These strictly modify the display of the text.</li>
+  <li>Examples are:</li>
+  <img class="imagedisplay" src="../../assets/49-1.PNG">
+</ul>
+
+<h3 class= "h3indent">50. Custom Pipes </h3>
+<ul class="nobullet">
+  <li>To create a custom pipe create a your-pipe.pipe.ts file</li>
+  <li>You need to import Pipe, and PipeTransform from @angular/core</li>
+  <li>You need to implement PipeTransform  (which is an interface to define the structure</li>
+  <li>You also need the @Pipe decorator with a name key </li>
+  <li>This needs to be registered in app.module.ts and in the declarations section add your pipe</li>
+  <li>The following example creates a pipe that limits the amount of characters displayed</li>
+  <li>The first image is the component using the pipe</li>
+  <img class="imagedisplay" src="../../assets/50-1.PNG">
+  <li>The second file is the pipe:</li>
+  <img class="imagedisplay" src="../../assets/50-2.PNG">
+
+</ul>
+
+<h3 class= "h3indent">Assignment, implment a Glyphicon star that changes based on a click event  </h3>
+<ul class="nobullet">
+<li>Our component has the isFavorite boolean that will toggle the star and a click event that toggles the value</li>
+<img class="imagedisplay" src="../../assets/50-4.PNG">
+<li>Our html page has a span that has a class gylphicon and two other classes that will display based on the state of isFavorite.  The click event triggers the change.</li>
+<img class="imagedisplay" src="../../assets/50-3.PNG">
+</ul>
+
+<h3 class= "h3indent">Assignment, modify text to uppercase non prepositions except if it is the first character  </h3>
+<ul class="nobullet">
+ <li>Create a pipe that splits looks for each keyup and splits the value from the input field.  It then applies the proper casing based on the rules stated.</li> 
+ <li>The component template uses the pipe as follows</li>
+ <img class="imagedisplay" src="../../assets/50-6.PNG">
+ <li>The pipe is below:</li>
+ <img class="imagedisplay" src="../../assets/50-5.PNG">
+</ul>

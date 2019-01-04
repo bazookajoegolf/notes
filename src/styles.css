@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+
+body {
+    padding-left: 20px ;
+    padding-top: 50px ;
+    max-width: 1200px;
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.nobullet {
+    list-style: none;
+    line-height: 28px;
+}
+
+.h3indent {
+    margin-left: 35px;
+}
+
+.ml15 {
+    margin-left: 15px;
+}
+
+.ml30 {
+    margin-left: 30px;
+}
+
+.pl15 {
+    padding-left: 15px;
+}
+
+.pl30 {
+    padding-left: 30px;
+}
+
+.filename {
+    color : blue;
+    font-weight: 600;
+}
+
+.imagedisplay {
+    width: 600px;
+    height: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}

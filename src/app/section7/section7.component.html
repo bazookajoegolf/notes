@@ -1,0 +1,122 @@
+<br>
+<h2 >Section 7. Template Driven Forms</h2>
+<br>
+
+<h3 class= "h3indent">76. Building a Bootstrap Form </h3>
+<ul class="nobullet">
+<li>Build a basic bootstrap form.  </li>
+<img class="imagedisplay" src="../../assets/76-1.PNG">
+</ul>
+
+<h3 class= "h3indent">77. Types of Forms  </h3>
+<ul class="nobullet">
+<li>Angular has a class called FormControl.  Allows us to see values, status such as touched, untouched, dirty, pristine, valid and errors</li>
+<li>There are also FormGroups. Has similar values available. There is always at least one formgroup and one formcontrol </li>
+<li>The formgroup has the valid value and can tell if all formcontrol members are valid.  This would be a better place to check if the form is valid.</li>
+<li>There are 2 ways to create controls.  Template-driven (directives) and Reactive (code).</li>
+<li>The difference is:  Reactive give more control over validation, is good for complex forms</li>
+<li>Template are simpler , easer to create</li>
+</ul>
+
+<h3 class= "h3indent">78 ngModel.  </h3>
+<ul class="nobullet">
+<li>The template driven forms uses ngModel.  Apply ngModel to the input field. Using ngModel creates a control object under the hood..  </li>
+<li>ngModel requires the name attribute.  This is the way it distinquishes this specifice control.</li>
+<li>To see what ngModel creates put this in the input tag. </li>
+<li>input ngModel name="firstname" #firstName="ngModel" (change)="log(firstName)" Create a log method that console logs ngModel</li>
+<li>You should see the ngModel object. It has such values as control: which is FormControl. Others such as dirty dissabled etc.</li>
+<li></li> 
+</ul>
+
+<h3 class= "h3indent">79. Adding Validation  </h3>
+<ul class="nobullet">
+<li>To test if a field is valid you can check if the input field temp variable is valid (ie: firstName.valid).  You can create a div that will display @ngIf="!firstName.valid".  This will display this dive if the input field is not valid.</li>
+<li>You should also check if the field is touched AND not valid to avoid seeing the warning message before the user has typed.</li>
+<li></li>
+</ul>
+
+
+<h3 class= "h3indent">80. Specific Validation Errors  </h3>
+<ul class="nobullet">
+<li>There are a few basic validators based on html5 such as minlength, maxlength, pattern.  You should have multiple validation errors for each type of potential error.</li>
+<li>You can *ngIf against "firstName.errors.required if this is required error.</li>
+</ul>
+
+<h3 class= "h3indent">81. Styling Invalid Input Fields  </h3>
+<ul class="nobullet">
+<li>You can style the input field using classes that Angular adds if a tag is invalid.  You can create a css style based on class .form-control.ng-touched.ng-invalid</li>
+<li></li>
+</ul>
+
+<h3 class= "h3indent">82. Cleaner Templates  </h3>
+<ul class="nobullet">
+<li>You should write code so that everything can see everything without scrolling. </li>
+<img class="imagedisplay" src="../../assets/82-1.PNG">
+<img class="imagedisplay" src="../../assets/82-2.PNG">
+
+</ul>
+
+<h3 class= "h3indent">83. ngForm  </h3>
+<ul class="nobullet">
+<li>Angular by default will add an ngForm directive to a form tag.  You can overwrite by adding an ngNoForm directive..(see angular documentation.)</li>
+<li>Add a template variable to the form tag.  #f= ngForm.  It outputs an event called ngSubmit. </li>
+<li>To see what ngForm outputs you can listen for the ngSubmit event that ngForm outputs.</li>
+<li>Type:  form #f="ngForm" (ngSubmit)="submit(f)";.  Create a submit function in the component to view this output.</li>
+<li>This will show similar values as the formcontrol. You can use these values to test if the form as a whole is valid, you can also send the contents of the value field (which should be an object to a backend API.</li>
+
+</ul>
+
+<h3 class= "h3indent">84. ngModelGroup  </h3>
+<ul class="nobullet">
+<li>You can use the ngModelGroup directive if your form has a complex structure.  You can use the same technique to see the values of ngModelGroup.  May be important if your API is expecting a complex json value.</li>
+</ul>
+
+<h3 class= "h3indent">85. Control Classes and Directives  </h3>
+<ul class="nobullet">
+<li>This topic just reviewed the differences between formControl, which is created when you use the ngModel.  ngForm is create when you have a form tag.</li>
+<li>The difference between ngForm and ngModelGroup is ngForm has the output ngSubmit.</li>
+</ul>
+
+<h3 class= "h3indent">86. Disabling the Submit Button  </h3>
+<ul class="nobullet">
+<li>To disable the submit until the whole form is valid you can bind to the form temp variable ( you created f above.)</li>
+<li>To do this type:  button class="btn btn-primary" [disabled]="!f.valid"</li>
+</ul>
+
+<h3 class= "h3indent">87. Working with Check Boxes  </h3>
+<ul class="nobullet">
+<li><Very similar to an input as seen above.  The difference being the type is equal to: checkbox. Always need ngModel and a "name" value/li>
+<img class="imagedisplay" src="../../assets/87-1.PNG">
+<li>A way to see values of your forms you can interpolate f.value and pipe to json.  This will show you the values of your form.</li>
+</ul>
+
+<h3 class= "h3indent">88. working with Drop-Down Lists  </h3>
+<ul class="nobullet">
+<li>Drop downs generally get populated from a dynamic source.  The example below uses an array but the principle would be the same.</li>
+<li>Here the component is called and the array values fill the options of the dropdown.</li>
+<img class="imagedisplay" src="../../assets/88-1.PNG">
+<li>The typed content missing on the line with *ngFor has [value]="method.id and the value shown to the user is in double curly: method.name</li>
+<img class="imagedisplay" src="../../assets/88-2.PNG">
+<li>The value store in f.value would have the .id value of the dropdown (ie: 1 or 2 etc).  If you want both the id and the name you can use [ngValue] and have that equal to method in the above example.</li>
+<li>Also: in the select tag you can add the keyword multiple if you want the user to have the ability to select multiple items.  If so the value of .id will be an array. </li>
+
+</ul>
+
+<h3 class= "h3indent">89. working with Radio Buttons.  </h3>
+<ul class="nobullet">
+<li>Below example is a way to create Radio button. First image is the hard coded method</li>
+<img class="imagedisplay" src="../../assets/89-1.PNG">
+<li>The second image uses ngFor to dynamically add data.</li>
+<img class="imagedisplay" src="../../assets/89-2.PNG">
+<li>Note: Instead of hard coding email in above image you would use Interpolation and use method.name</li>
+<img class="imagedisplay" src="../../assets/89-3.PNG">
+</ul>
+
+<h3 class= "h3indent"> Assignment: Course Form </h3>
+<ul class="nobullet">
+<li>Create a form that has an input Course name (required 5 characters) and a dropdown that is required</li>
+<li>and a checkbox with the label 30-day money-back guarantee (optional).</li>
+
+</ul>
+
+<app-section7-lab></app-section7-lab>

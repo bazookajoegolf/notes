@@ -1,0 +1,117 @@
+<br>
+<h2 >Section 5. Building Reusable components</h2>
+<br>
+
+<h3 class= "h3indent">52. Component API </h3>
+<ul class="nobullet">
+  <li>In order to make components reusable and usable from other components we need to add the ability to Input and Output values</li>
+
+</ul>
+
+<h3 class= "h3indent">53. Input Properties </h3>
+<ul class="nobullet">
+  <li>A way to have values passed into the component</li>
+  <li>There are 2 ways: 1 is to import Input (from @angular/core) and use the @Input decorator on the variables that are accepting input</li>
+  <li>The other is to add inputs to the @components decorator and list all input variables in an array.  There is no need to import Input if done this way</li>
+  <li>The preferred is method one, using the @Input method.  A problem with method 2 there is a disconnect from the variable and the value in the inputs array.</li>
+  <li>If you refactor code and rename the variable, the input value will not be related to the renamed variable</li>
+  <img class="imagedisplay" src="../../assets/53-1.PNG">
+</ul>
+
+<h3 class= "h3indent">54. Aliasing Input Properties </h3>
+<ul class="nobullet">
+  <li>You can alias your input variables.  this helps should you want to refactor your app.  To reduce the chance off the calling app error. </li>
+  <img class="imagedisplay" src="../../assets/54-1.PNG">
+  <li>the above alias is used to input to the component below.</li>
+  <img class="imagedisplay" src="../../assets/54-2.PNG">
+  
+</ul>
+
+
+<h3 class= "h3indent">55. Output Properties </h3>
+<ul class="nobullet">
+  <li>Output works the same in the opposite direction.  One difference is it needs to emit an event.  You need to import the Output </li>
+  <li>You also need to import EventEmitter from @angular/core</li>
+  <li>the example below listens for a change event from the calling component.  In this case app.component uses the favorite component in its html page.</li>
+  <li>when the user clicks the favorite component, the change event will run the onFavoriteChange() function in app.component. </li>
+  <li>however, there needs to be an event created.  This is when you need an output event with the EventEmitter</li>
+  <li>You create an output variable (this should be named the same as the event).</li>
+  <li>As you can see below, the only thing that is happening regarding the output variable is it is sending an emit notification.</li>
+  <img class="imagedisplay" src="../../assets/55-1.PNG">
+  <img class="imagedisplay" src="../../assets/55-2.PNG">
+  <img class="imagedisplay" src="../../assets/55-3.PNG">
+  <li></li>
+
+</ul>
+
+<h3 class= "h3indent">56. Passing Event Data </h3>
+<ul class="nobullet">
+  <li>Passing event data is done by including it in the emit function.</li>
+  <li>The image below includes the $event Angular var that receives the values emitted from the Favorite component.</li>
+  <img class="imagedisplay" src="../../assets/56-1.PNG">
+  <li>The image below adds the newValue object data to emit.  Below is an exported interface definition of the data being passed back.  This is used for typescript casting and intellisense.  will be imported by the calling to component. </li>
+  <img class="imagedisplay" src="../../assets/56-2.PNG">
+  <li>Below note the interface is imported and used as part of the parameter definition of the onFavoriteChange function.</li>
+  <img class="imagedisplay" src="../../assets/56-3.PNG">
+  <li></li>
+</ul>
+
+<h3 class= "h3indent">57. Aliasing Output Properties </h3>
+<ul class="nobullet">
+  <li>Similar concept as aliasing for input.  </li>
+  <li>The below example adds change to the @Output cmd to create the alias.  In this case the (change) event (from first image in section 56) remains the same. </li>
+  <img class="imagedisplay" src="../../assets/57-1.PNG">
+</ul>
+
+
+<h3 class= "h3indent">58. Templates </h3>
+<ul class="nobullet">
+  <li>Use templateUrl for larger chunks of html.  Use template for 5 lines of html or less.</li>
+</ul>
+
+<h3 class= "h3indent">59. Styles </h3>
+<ul class="nobullet">
+  <li>3 ways to apply a style.  Using the styleUrls:[], styles:[``].  You can use both types but the last applied is what is shown an ignores the first.</li>
+  <li>You can also add a style tag in your html page. This is applied last and would take priority.</li>
+</ul>
+
+<h3 class= "h3indent">60. View Encapsulation </h3>
+<ul class="nobullet">
+  <li>Uses Shadow DOM.  Allows scoped styles to elements without leaving the component.</li>
+  <li>The example below shows an example of shadow DOM.  It creates a root to the el var. h1 will now only be styled red on this element.</li>
+  <img class="imagedisplay" src="../../assets/60-1.PNG">
+  <li>Angular uses Encapsulation.  It is declared in the @Component.  The default value is emulated, meaning it emulates shadow dom.</li>
+  <li>Pretty much never going to use this.</li>
+</ul>
+
+
+<h3 class= "h3indent">61 ngContent </h3>
+<ul class="nobullet">
+  <li>You would probably use ngContent if you wanted to create a reusable template where you could pass content to viewable areas.</li>
+  <li>The example below creates a blank bootstrap panel component.  </li>
+  <img class="imagedisplay" src="../../assets/61-1.PNG">
+  <li>Below: the html file uses ng-content tags to define where the calling component can place content.  Use select to distinguish between ng-content tags.</li>   
+  <img class="imagedisplay" src="../../assets/61-2.PNG">
+  <li>Below: by using the class "heading" the value Heading is pushed into the above ng-content .heading tag.</li>
+  <img class="imagedisplay" src="../../assets/61-3.PNG">
+</ul>
+
+<h3 class= "h3indent">62. ngContainer </h3>
+<ul class="nobullet">
+  <li>ng-container simplies the output of your code by not having the need to provide a tag such as div to pass (see above example)</li>
+  <li>Simply substitute the word div with ng-container.  If you inspect the source in your browser you will see the div is not there.</li>
+  <img class="imagedisplay" src="../../assets/62-1.PNG">
+</ul>
+
+<h3 class= "h3indent">Assignment Like Component </h3>
+<ul class="nobullet">
+    <img class="imagedisplay" src="../../assets/62-2.PNG">
+    <img class="imagedisplay" src="../../assets/62-3.PNG">
+    <img class="imagedisplay" src="../../assets/62-4.PNG">
+    <img class="imagedisplay" src="../../assets/62-5.PNG">
+    <img class="imagedisplay" src="../../assets/62-6.PNG">
+    <img class="imagedisplay" src="../../assets/62-7.PNG">
+
+  <li></li>
+</ul>
+

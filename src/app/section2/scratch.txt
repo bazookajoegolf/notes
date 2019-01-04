@@ -1,0 +1,4 @@
+  leftCurly = "{";
+  rightCurly = "}";
+
+   <img class="imagedisplay" src="../../assets/50-5.PNG">

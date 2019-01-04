@@ -1,0 +1,212 @@
+<div >
+<br>
+<h2 >Section 2. Typescript Fundamentals</h2>
+<br>
+<h3 class= "h3indent">13. What is Typescript</h3>
+<ul class="nobullet">
+  <li>This section will delve into: Type annotation, Arrow functions, Interfaces, Classes, Constructors, Access modifiers, Properties, Modules</li>
+  <li>Typescript is a superset of javascript. </li>
+  <li>Uses Strong typing, brings Object-oriented features. Can catch errors at compile time. Gives us access to good tools</li>
+  <li>Browsers don't support typescript.  typescript get transpile to javascript so the browswer understand</li>
+</ul>
+
+<h3 class= "h3indent">14. First Typescript app</h3>
+<ul class="nobullet">
+  <li>Install typescript:   npm i -g typescript</li>
+  <li>type:  tsc --version to see the typescript version </li>
+  <li>create a folder and create a file main.ts</li>
+  <li>Add some code, run: tsc main.ts.    After this you should see a main.js file that was transpiled from main.ts</li>
+</ul>
+
+<h3 class= "h3indent">15. Declaring Variables</h3>
+<ul class="nobullet">
+  <li>To declare variable you can use var or let</li>
+  <li>All browsers support es5 of ecmascript. es6 came out in 2015, versions then became es2016, es2017, etc. </li>
+  <li>let came with es6.  it has different scope than a var.  var is scoped to the nearest function.  let is scoped to the nearest block. </li>
+  <li>If your typescript target is es5 let will substitute it with var. </li>
+
+</ul>
+
+<h3 class= "h3indent">16. Different types</h3>
+<ul class="nobullet">
+  <li>Using Let instead of var helps Microsoft code find errors in the code we write.  It will let you know if you are changing datatypes,etc </li>
+  <li>Type annotation will force a let to a specific variable type:  number, string, etc.</li>
+  <li>declare:   let a: number;  will force the variable a to be a number (and not type any)</li>
+  <li>Other types:  number, boolean, any, string, array (ie: number[] creates a number array), and enum</li>
+  <li> .</li>
+  <li>{{"enum:  eg:  enum Color  {Red=0, Green=1, blue=2 } "}}</li>
+  <li>let backgroundColor = Color.Red</li>
+</ul>
+
+<h3 class= "h3indent">17. Type Assertions</h3>
+<ul class="nobullet">
+  <li>A way to inform the typescript intellisense of what type of variable something is.  If you declare as a string then intellisense will be able to bring up all string functions </li>
+  <li>eg:</li>
+  <li>let message;</li>
+  <li>message = 'abc';</li>
+  <li> let x = ({{stringBracket}}message).endsWith('c')</li>
+  <li> let y = (message as string).endsWith('c') </li>
+   <li>Above only is relevant to the intellisense; message will still be of type any</li>
+</ul>
+
+<h3 class= "h3indent">18. Arrow Functions</h3>
+<ul class="nobullet">
+  <li>example:  let log = (message) =>   {{leftCurly}}  </li>
+  <li>console.log(message) {{rightCurly}}</li>
+  <li></li>
+  <li></li>
+  
+</ul>
+
+<h3 class= "h3indent">19. Interfaces</h3>
+<ul class="nobullet">
+  <li>Interfaces are a way of defining a data model</li>
+  <li>Interfaces use Pascal naming convention. (capital the first letter)</li>
+  <li>May be handy for defining a structure but if methods are required it is better to create a class</li>
+  
+
+</ul>
+
+<h3 class= "h3indent">20. Classes</h3>
+<ul class="nobullet">
+  <li>Classes subscribe to the cohesion principal that all things that deal with an object should be kept together.</li>
+  <li>eg of a Class:</li>
+  <hr>
+  <ul class="nobullet">
+  <li>class Point {{leftCurly}}</li>
+  <li class="pl15"> x: number;</li>
+  <li class="pl15"> y: number;</li>
+  <li> </li>
+  <li>draw() {{leftCurly}}</li>
+  <li class="pl30">console.log('X: ' + this.x + ', y: ' + this.y);</li>
+  <li class="pl15">{{rightCurly}}</li>
+  <li></li>
+  <li>getdistance(another: Point) {{leftCurly}}</li>
+  <li class="pl30">//code logic</li>
+  <li class="pl15">{{rightCurly}}</li>
+  <li>{{rightCurly}}</li>
+
+    </ul>
+  <hr>
+</ul>
+
+<h3 class= "h3indent">21. Objects</h3>
+<ul class="nobullet">
+<li>Objects are instances of a class.  In order to use a class we have to create a new instance of this class.</li>
+<li>After the code above type:</li>
+<li>let point = new Point();</li>
+<li>point.x = 1;</li>
+<li>point.y = 2;</li>
+<li>point.draw();</li>
+<li></li>
+<li>This will output the console statement.  Note we had to create a new Point()</li>
+<li>Think of classes as humans and objects are instances of humans such a someone named Bob</li>
+</ul>
+
+<h3 class= "h3indent">22. Constructors</h3>
+<ul class="nobullet">
+<li>Constructors are a way to initialize values when a new object is created.  These values can be passed at creation time</li>
+<li>eg:   add the following to the above class after the x: and y: declaration</li>
+<li></li>
+<li>constructor(x?: number, y?: number) {{leftCurly}}</li>
+<li class="pl15">this.x = x;</li>
+<li class="pl15">this.y = y;</li>
+<li>{{rightCurly}}</li>
+<li></li>
+<li>Note:  the question marks after the x and y indicate that these fields are optional. A good practise is that any variable declared optional should have any variable to the right also be optional.</li>
+</ul>
+
+<h3 class= "h3indent">23. Access Modifiers</h3>
+<ul class="nobullet">
+  <li>Sometimes we need the variables to NOT be modifiable after the object is created. To achieve this we declare the variables private </li>
+  <li>By default all variables are public.  there are 3 types of access modifiers: private, public, and protected.</li>
+  <li>To do so simply add the private keyword in front of the x or y variable</li>
+</ul>
+
+<h3 class= "h3indent">24. Access Modifiers in Constructor Parameters</h3>
+<ul class="nobullet">
+<li>The typescript compiler has the ability to create the local variables in the constructor. This makes things look cleaner and </li> 
+<li>saves us from having to assign the passed values to the local variables. An access modifier is required to auto generate the local variables</li> 
+<li>The constructor would look like this:</li> 
+<li>constructor(private x?: number, private y?: number) {{leftCurly}}</li> 
+<li>{{rightCurly}}</li> 
+
+</ul>
+
+<h3 class= "h3indent">25. Properties</h3>
+<ul class="nobullet">
+  <li>Properties are more like methods you create that allow you to change the value of a variable.  Instead of exposing a variable to the consumers</li>
+  <li>you can create properties that can modify the values of the variables.  An feature of this is it allows you to program logic</li>
+  <li>into the "getter" or "setter" property.  IE: you cannot set the value of a variable if it is less than zero.</li>
+  <li>An Example of a setter for the x value would be as follows:</li>
+  <li>set x(value) {{leftCurly}}</li>
+  <li class="pl15">if (value < 0)</li>
+  <li class="pl30">throw new Error ('value cannot be less than 0');</li>
+  <li class="pl30"> this._x= value;</li>
+  <li class="pl15">{{rightCurly}}</li>
+  <li></li>
+  <li>Note:  private variables should be prefixed with an _... therefore the x value in the constructor above would be _x</li>
+</ul>
+
+<h3 class= "h3indent">26. Modules</h3>
+<ul class="nobullet">
+  <li>Modules are a way of breaking our code into smaller files that we can export and import into other files.</li>
+  <li>For Typescript adding the keyword export before the class definition turns that section into a module</li>
+  <li>In order to use the module we need to import it into the file that wants to use that module</li>
+  <li>The example below creates a Point class and exports it to be a module.  Call this file point.ts</li>
+  <li>The main.ts file will import the point.ts file so that it can use it </li>
+  <li></li>
+  <li>See the example below</li>
+  <li></li>
+  <li class="filename">file: Point.ts</li>
+  <li> </li>
+  <li>export class Point {{leftCurly}}</li>
+  <li class="pl15">constructor(private _x? : number, private _y?: number) {{leftCurly}}</li>
+  <li class="pl15">{{rightCurly}}</li>
+  <li></li>
+  <li class="pl15">draw() {{leftCurly}}</li>
+  <li class="pl30">console.log('x: ' + this._x + ' , x: ' + this._y);</li>
+  <li class="pl15">{{rightCurly}}</li>
+  <li>{{rightCurly}}</li>
+  <li></li>
+  <li></li>
+  <li class="filename">file: main.ts</li>
+  <li> </li>
+  <li>import {{leftCurly}} Point {{rightCurly}} from './point';</li>
+  <li></li>
+  <li>let point = new Point(1,2);</li>
+  <li>point.draw();</li>
+  <li></li>
+</ul>
+
+<h3 class= "h3indent">Likes Count Exercise</h3>
+<ul class="nobullet">
+<li>The exercise asks to create a click event that increases a counter for likes and display if liked or not</li>
+<li></li>
+<li class="filename">file:  like.component.ts</li>
+<li></li>
+<li>export class LikeComponent {{leftCurly}}</li>
+<li class="pl15">constructor (public likesCount: number, public isSelected : boolean) {{leftCurly}}</li>
+<li class="pl15">{{rightCurly}}</li>
+<li></li>
+<li class="pl15">onClick() {{leftCurly}}</li>
+<li class="pl30">this.likesCount += (this.isSelected) ? -1 : +1;</li>
+<li class="pl30">this.isSelected = !isSelected;</li>
+<li class="pl15">{{rightCurly}}</li>
+<li>{{rightCurly}}</li>
+<li>.</li>
+<li class="filename">file: main.ts</li>
+<li></li>
+<li>import {{leftCurly}} LikeComponent {{rightCurly}} from './like.component'; </li>
+<li></li>
+<li>let component = new LikeComponent(5,true);</li>
+<li>component.onClick();</li>
+<li>console.log('Likes Count: ' + likesCount + ' liked ' + isSelected);</li>
+<li>.  </li>
+<li>An enhancement would be to change to public variables to private, prefix with an underscore, then create 2 methods that provide the values of likes count and is selected.</li>
+<li></li>
+
+</ul>
+
+
+</div>

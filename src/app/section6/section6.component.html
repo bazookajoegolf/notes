@@ -1,0 +1,111 @@
+<br>
+<h2 >Section 6. Directives</h2>
+<br>
+
+<h3 class= "h3indent">64. ngIf </h3>
+<ul class="nobullet">
+<li>Directives are used to modify the structure or attribute of a DOM</li>
+<li>In Angular 4 you can use ng-template as a way to display conditional content.  Add a #variable and use this value in your *ngIf statement </li>
+<img class="imagedisplay" src="../../assets/64-1.PNG">
+
+</ul>
+
+<h3 class= "h3indent">65.Hidden Property </h3>
+<ul class="nobullet">
+<li>Another method is to toggle the hidden property. The difference with these approaches is; using this approach adds the element to to dom but simply hides the content.  Using ngIf, the items are not in the DOM.  Generally use ngIf unless it takes a lot of processing to generate the hidden content.</li>
+<img class="imagedisplay" src="../../assets/65-1.PNG">
+</ul>
+
+<h3 class= "h3indent">66. ngSwitchCase</h3>
+<ul class="nobullet">
+<li>Switchcase is a way to display content that isn't based on true or false.  In the example below what's displayed is based on a text variable viewMode.</li>
+<li>viewMode is also used to toggle the button to active</li>
+<li>Note: first 2 images are the same file except shifted over to get all content.</li>
+<img class="imagedisplay" src="../../assets/66-1.PNG">
+<img class="imagedisplay" src="../../assets/66-2.PNG">
+<img class="imagedisplay" src="../../assets/66-3.PNG">
+</ul>
+
+<h3 class= "h3indent">67. ngFor</h3>
+<ul class="nobullet">
+<li>Here is our typical ngFor directive except it uses the exported value index.  In this example index is used to display value of the index with the letter i</li>
+<li>This example will have output similar to:  1  -  Course 1</li>
+<img class="imagedisplay" src="../../assets/67-1.PNG">
+<img class="imagedisplay" src="../../assets/67-2.PNG">
+<li>To find out all exported values go to angular.io and search for Directive ngForOf.  Here you can find all exported values</li>
+</ul>
+
+<h3 class= "h3indent">68. ngFor and Change Detection</h3>
+<ul class="nobullet">
+<li>Angular has builtin change detection.  If any action happens Angular will detect and render the change. These change events include DOM events, Ajax requests or Timers</li>
+<img class="imagedisplay" src="../../assets/68-1.PNG">
+<img class="imagedisplay" src="../../assets/68-2.PNG">
+<li>Below shows how to remove an item from an array.</li>
+<img class="imagedisplay" src="../../assets/68-3.PNG">
+
+</ul>
+
+<h3 class= "h3indent">69. ngFor and Trackby</h3>
+<ul class="nobullet">
+<li>This topic has to do with performance.  By default if a change occurs that involves a long list, if Angular detects a change it will re-render the entire list.</li>
+<li>Angular detects by default by there identity in memory. Add trackBy: to have angular track by another method. </li>
+<li>The example  below adds the trackBy to our ngFor.  It references a function that we create in the component.</li>
+<li>The 2nd image is our component, and the 3rd image is our tracking function</li>
+<li>I'm assuming that if Angular already sees this course id it won't redraw.  Sounds like this needs some sort of index to make it work properly.</li>
+<img class="imagedisplay" src="../../assets/69-1.PNG">
+<img class="imagedisplay" src="../../assets/69-2.PNG">
+<img class="imagedisplay" src="../../assets/69-3.PNG">
+<li>There's some trickery here I don't understand.... use only with large performance draining lists.</li>
+</ul>
+
+<h3 class= "h3indent">70. The Leading Asterisk</h3>
+<ul class="nobullet">
+<li>If you use the leading asterisk it tells angular to create tags with ng-template based on our expression</li>
+<li>For the most part just use the leading * and don't worry about creating the proper ng-template structure as shown below.  Below is what angular does to re-render our code.</li>
+<img class="imagedisplay" src="../../assets/70-1.PNG">
+</ul>
+
+<h3 class= "h3indent">71. ngClass</h3>
+<ul class="nobullet">
+<li>Is a different way to class bind.  Below the example shows both methods, the 2nd method uses ngClass.</li>
+<img class="imagedisplay" src="../../assets/71-1.PNG">
+</ul>
+
+<h3 class= "h3indent">72. ngStyle</h3>
+<ul class="nobullet">
+<li>Uses a similar technique as ngClass</li>
+<img class="imagedisplay" src="../../assets/72-1.PNG">
+</ul>
+
+<h3 class= "h3indent">73. Safe Traversal Operator</h3>
+<ul class="nobullet">
+<li>Use this if you use something like interpolation but you may not have a value yet. If the value is currently null your browser is going to generate an error.</li>
+<li>Safe Traversal allows the tag to be generated without DOM errors. Use a ? .</li>
+<img class="imagedisplay" src="../../assets/73-1.PNG">
+</ul>
+
+<h3 class= "h3indent">74. Creating Custom Directives</h3>
+<ul class="nobullet">
+<li>You can create custom directives by using the cli.  type ng g d your-directive.  It creates 2 files and updates the app.module.ts file.</li>
+<li>It adds this new directive to the declarations section.  Take note of the new @angular/core imports. </li>
+<img class="imagedisplay" src="../../assets/74-1.PNG">
+<img class="imagedisplay" src="../../assets/74-2.PNG">
+<img class="imagedisplay" src="../../assets/74-3.PNG">
+<li>You can simplify the look of the code by modifying the property binding to as follows:  Can only do if you have just 1 element.</li>
+<img class="imagedisplay" src="../../assets/74-4.PNG">
+<img class="imagedisplay" src="../../assets/74-5.PNG">
+</ul>
+
+<h3 class= "h3indent">Assignment ZippyComponent</h3>
+<ul class="nobullet">
+<li class="filename">file: zippy.component.ts</li>
+<img class="imagedisplay" src="../../assets/75-1.PNG">
+<li class="filename">file: zippy.component.html</li>
+<img class="imagedisplay" src="../../assets/75-2.PNG">
+<li class="filename">file: zippy.component.css</li>
+<img class="imagedisplay" src="../../assets/75-3.PNG">
+<li class="filename">file: app.component.html</li>
+<img class="imagedisplay" src="../../assets/75-4.PNG">
+<li>What the app looks like in the browser.</li>
+<img class="imagedisplay" src="../../assets/75-5.PNG">
+</ul>

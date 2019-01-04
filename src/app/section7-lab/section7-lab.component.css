@@ -1,0 +1,35 @@
+.sec7lab-div {
+    margin-left: 150px;
+    width: 600px;
+    height: 300px;
+    border: 3px #444 solid;
+    border-radius: 8px;
+}
+
+.lbl-format {
+    display: block;
+    margin-left: 20px;
+    font-weight: 600;
+    line-height: 20px ;
+    margin-bottom: 1px;
+    margin-top: 15px;
+}
+
+.inp-format {
+   
+    width: 300px;
+    margin-left: 20px;
+    margin-top: 0px;
+}
+
+.btn {
+    margin-left: 20px;
+}
+
+.alert-danger {
+    font-size: .75em;
+    height: 20px;
+    line-height: 16px;
+    margin: 0px;
+    padding: 3px;
+}
