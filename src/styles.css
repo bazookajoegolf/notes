@@ -1,12 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "~bootstrap/dist/css/bootstrap.css";
+/* @import "~bootstrap/dist/css/bootstrap.css"; */
+
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import "~font-awesome/css/font-awesome.css";
 
 body {
     padding-left: 20px ;
     padding-top: 50px ;
-    max-width: 1200px;
+   
     font-size: large;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
@@ -46,4 +48,9 @@ body {
     height: auto;
     padding-top: 30px;
     padding-bottom: 30px;
+    display: block;
+}
+
+a {
+    text-decoration: none
 }

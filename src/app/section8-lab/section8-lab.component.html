@@ -1,22 +1,32 @@
 
-
-<form action="">
-  <div class="form-group">
+<li>Not quite the what the question asks.... I don't have an async validator</li>
+<form action="form">
+  <div [formGroup]="form">
     <label for="username">Username</label>
-    <input  type="text"
+    <input  
             formControlName="username"
+            type="text"
             id="username"
-            class="fomr-control"
+            class="form-control"
     >
+    <div *ngIf="username.touched && username.invalid" class="alert alert-danger"> 
+      <div *ngIf="username.errors.required ||  username.errors.email" >Valid Email Address Required</div>
+      <div></div>
+    </div>
   </div>
 
-  <div class="form-group">
+  <div [formGroup]="form">
       <label for="password">Password</label>
-      <input  type="text"
+      <input  
               formControlName="password"
+              type="text"
               id="password"
-              class="fomr-control"
+              class="form-control"
       >
     </div>
-    <button class="btn btn-primary" type="submit" >Sign Up</button>
+   <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+      <div *ngIf="password.errors.required ||  password.errors.minlength" >A 5 Character Password is required</div>
+   </div>
+
+    <button (click)="showForm(form)" class="btn btn-primary" type="submit" >Sign Up</button>
 </form>

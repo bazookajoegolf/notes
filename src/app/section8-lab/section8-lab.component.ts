@@ -1,4 +1,4 @@
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -10,8 +10,20 @@ import { Component, OnInit } from '@angular/core';
 export class Section8LabComponent  {
 
   form = new FormGroup({
-    username: new FormControl(),
-    passowrd: new FormControl()
+    username: new FormControl('', [Validators.required,Validators.email]),
+    password: new FormControl('', [Validators.required,Validators.minLength(5)])
   });
+
+  get username() {
+    return this.form.get('username');
+  }
+
+  get password() {
+    return this.form.get('password');
+  }
+  showForm(f) {
+    console.log(f);
+    alert(`Username ${f.value.username}  password:    ${f.value.password}`);
+  }
 
 }

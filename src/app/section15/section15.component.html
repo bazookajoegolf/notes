@@ -1,0 +1,202 @@
+<br>
+<h2>Section 15. Angular Material 2</h2>
+<br>
+
+
+<h3 class="h3indent">209. What is Angular Material </h3>
+<ul class="nobullet">
+  <li>Basically bootstrap for Angular... a little fancier. It's a little easier to use then Bootstrap. </li>
+</ul>
+
+<h3 class="h3indent">210. Installing Angular Material </h3>
+<ul class="nobullet">
+  <li>To install type: npm i --save @angular/cdk @angular/material optional packages : @angular/animation hammerjs </li>
+  <li>You can use some of the prebuilt themes. Import into your styles.css: @import
+    "~@angular/material/prebuilt-themes/indigo-pink.css"</li>
+  <li>You need to import BrowserAnimationsModule from '@angular/plaform-browser/animations' in app.module.ts</li>
+  <li>OR:: import NoopAnimationsModule. Above is you want animations, Noop is if you don't. Add to the imports : array
+  </li>
+  <li>You need to import in your component in app.module.ts. For Checkboxes import: </li>
+  <img class="imagedisplay" src="../../assets/210-2.PNG">
+  <li> To test you've installed probably add:</li>
+  <img class="imagedisplay" src="../../assets/210-1.PNG">
+</ul>
+
+<h3 class="h3indent">211. Check Boxes </h3>
+<ul class="nobullet">
+  <li>Below shows that you can use md-checkbox just like regular inputs. (the onChange() event simply logged to the
+    console.</li>
+  <img class="imagedisplay" src="../../assets/211-1.PNG">
+</ul>
+
+<h3 class="h3indent">212. Radio Buttons </h3>
+<ul class="nobullet">
+  <li>In all cases you need to import the proper module. Look to material.angular.io to get source sample code.</li>
+  <img class="imagedisplay" src="../../assets/212-1.PNG">
+</ul>
+
+<h3 class="h3indent">213. Selects </h3>
+<ul class="nobullet">
+  <li>Import the module...MdSelectModule.  </li>
+  <img class="imagedisplay" src="../../assets/213-1.PNG">
+  <img class="imagedisplay" src="../../assets/213-2.PNG">
+  <li>Above shows how to create a dynamic dropdown list.  ngModel is used to select a default value. (ngModel is imported from FormsModule)</li>
+</ul>
+
+<h3 class="h3indent">214. Inputs </h3>
+<ul class="nobullet">
+  <li>Below shows how to create an input field with prefixes, suffixes and error handling using ngModel and *ngIf. (missing text is username.errors.required.</li>
+    <img class="imagedisplay" src="../../assets/214-1.PNG">
+</ul>
+
+<h3 class="h3indent">215. Text Areas </h3>
+<ul class="nobullet">
+  <li>Shows how to create a text area.  Below autosizes to fit content.</li>
+  <img class="imagedisplay" src="../../assets/215-1.PNG">
+</ul>
+
+<h3 class="h3indent">216. Date Pickers </h3>
+<ul class="nobullet">
+  <li>Need to import MdDatepickerModule. (may need MdNativeDateModule??) </li>
+  <img class="imagedisplay" src="../../assets/216-2.PNG">
+  <img class="imagedisplay" src="../../assets/216-1.PNG">
+</ul>
+
+<h3 class="h3indent">217. Icons </h3>
+<ul class="nobullet">
+  <li>Check out icons at:  material.io/icons</li>
+  <li>@import "https://fonts.googleapis.com/icon?family=Material+Icons";</li>
+  <li>In app.module.ts import MdIconModule</li>
+  <li>When adding icons names with spaces substitute with an Underscore.</li>
+  <img class="imagedisplay" src="../../assets/217-1.PNG">
+  <li>You can style in your css file.</li>
+
+</ul>
+
+<h3 class="h3indent">218. Buttons </h3>
+<ul class="nobullet">
+  <li>Need to import MdButtonModule. Some directives are md-button, or md-raised-button. Background color is based on your theme. </li>
+  <li>>You can color use color="primary or accent or warn" (based on the theme). </li>
+  <li>Another directive is md-fab (floatable action button.). It allows you to add icons to your button.</li>
+  <img class="imagedisplay" src="../../assets/218-1.PNG">
+</ul>
+
+<h3 class="h3indent">219. Chips </h3>
+<ul class="nobullet">
+  <li>Used typically for tags, or categories... look a lot like buttons. </li>
+  <li>Below is a way to toggle if selected (all can be selected).</li>
+  <img class="imagedisplay" src="../../assets/219-1.PNG">
+  <li>Below shows how to have only one category selected.</li>
+  <img class="imagedisplay" src="../../assets/219-2.PNG">
+  <li>This method looks at the category passed and looks for all but this category and sets the selected to false.</li>
+  <li>It then toggles the selected property.</li>
+  <img class="imagedisplay" src="../../assets/219-3.PNG">
+</ul>
+
+<h3 class="h3indent">220. Progress Spinners </h3>
+<ul class="nobullet">
+  <li>Import MdProgressSpinnerModule. There are 2 modes, determinate or indeterminate. Determinate is a known amount of time.  </li>
+  <li>The example below used the interval function to inc progress by 1 every 20ms until it reaches 100.</li>
+  <img class="imagedisplay" src="../../assets/220-1.PNG">
+  <img class="imagedisplay" src="../../assets/220-2.PNG">
+  <li>Indeterminate is used for unknown time.  The example mocks getting data from a service.</li>
+  <li>This example used the timer observable to simulate a 2 second request.  During the 2 seconds the spinner is displayed.</li>
+  <img class="imagedisplay" src="../../assets/220-3.PNG">
+  <img class="imagedisplay" src="../../assets/220-4.PNG">
+  <img class="imagedisplay" src="../../assets/220-5.PNG">
+</ul>
+
+<h3 class="h3indent">221. Tooltips </h3>
+<ul class="nobullet">
+  <li>Import MdTooltipModule. Tooltips are a hover help option.</li>
+  <img class="imagedisplay" src="../../assets/221-1.PNG">
+  <li></li>
+</ul>
+
+<h3 class="h3indent">222. Tabs</h3>
+<ul class="nobullet">
+  <li>Import MdTabModule. This example added 20px padding to the top to class .mat-tab-body-content</li>
+  <img class="imagedisplay" src="../../assets/222-1.PNG">
+  <li></li>
+</ul>
+
+<h3 class="h3indent">223. Dialogs</h3>
+<ul class="nobullet">
+  <li>Import MdDialogModule. This example is quite involved.  Dialogs when invoked are designed to open another component. 
+However, since this component is added dynamically you will get an error.  You need to add this component to the app.module.ts field
+and create another section called entryComponents.  This way angular will know how to compile.
+</li>
+<li>This example also shows how to get a return value from the component.</li>
+<img class="imagedisplay" src="../../assets/223-1.PNG">
+<img class="imagedisplay" src="../../assets/223-2.PNG">
+<img class="imagedisplay" src="../../assets/223-3.PNG">
+<img class="imagedisplay" src="../../assets/223-4.PNG">
+  <li></li>
+</ul>
+
+<h3 class="h3indent">224. Passing data to a Dialog. </h3>
+<ul class="nobullet">
+  <li>Lots of stuff here. Mostly showing what is happening under the hood.  But basically follow the examples below.</li>
+  <img class="imagedisplay" src="../../assets/224-1.PNG">
+  <img class="imagedisplay" src="../../assets/224-2.PNG">
+</ul>
+
+<h3 class="h3indent">226. Creating a Reusable Module </h3>
+<ul class="nobullet">
+  <li>Basically taking all the material modules and putting them in a separate module and then adding this module to the main app.module.ts.</li>
+  <li>Also talks about cohesion principle.  IE: simply put; keep similar stuff togehter.</li>
+  <li>Use the cli to generate a module.   ng g m md-components.  this creates a folder and a file md-component.module.ts</li>
+  <li>You then take all the material imports out of app.module and put in this new file. Don't need the declarations or imports, (removed from @NgModule.</li>
+  <li>Create a new exports array and put all the declarations done above.</li>
+  <img class="imagedisplay" src="../../assets/226-1.PNG">
+  <img class="imagedisplay" src="../../assets/226-2.PNG">
+  <li>You then need to import this module into app.module.ts</li>
+  <img class="imagedisplay" src="../../assets/226-3.PNG">
+</ul>
+
+<h3 class="h3indent">227. Themes. </h3>
+<ul class="nobullet">
+  <li>Themes are used to create a consist color pallette for your app.  You can import a default theme or create a custom theme.</li>
+  <li>Goto material.io/color to start building a color pallette.</li>
+
+</ul>
+
+<h3 class="h3indent">228. SASS. </h3>
+<ul class="nobullet">
+  <li>A way to use variables to build css.  A transpiler will convert to .css.  Similar approach to transcript transpiling to javascript.</li>
+  <li>SASS is the default for Angular.  </li>
+  <li>To implement create a .scss file such as themes.scss.  You then need to add this file to the .angular-cli.json file in the styles array.
+    Include the path where the src folder is the root.
+  </li>
+  <img class="imagedisplay" src="../../assets/228-1.PNG">
+  <li>Below shows how to use a variable and assign values with it.</li>
+  <img class="imagedisplay" src="../../assets/228-2.PNG">
+  <li>@mixin looks like a way of nesting css values. Below shows how you create a common set of values and then apply to settings below in our scss file.  </li>
+  <img class="imagedisplay" src="../../assets/228-3.PNG">
+</ul>
+
+<h3 class="h3indent">229. Creating a custom theme. </h3>
+<ul class="nobullet">
+  <li>In order to create a custom theme you need modify your new .scss file with the following:</li>
+  <li>To see how theses variables are defined you can go into _theme.scss and search for each variable.  I believe you are simply merging settings.</li>
+  <img class="imagedisplay" src="../../assets/229-1.PNG">
+</ul>
+
+<h3 class="h3indent">230. Using Angular Materials Typography </h3>
+<ul class="nobullet">
+  <li>Deals with modifying the font.  https://material.angular.io/guide/Typography</li>
+  <li>You can import a font and use the mat- directives on elements listed in guide above.</li>
+  <li>Globally you can add mat- to the body tag in the index.html</li>
+  <img class="imagedisplay" src="../../assets/230-1.PNG">
+</ul>
+
+<h3 class="h3indent">231. Customizing Typography </h3>
+<ul class="nobullet">
+  <li>Import your font and add to styles.css</li>
+  <img class="imagedisplay" src="../../assets/231-1.PNG">
+  <li>Below you are setting Open Sans as the "overriding font, and you are adding Helvetica and sans-serif as fall back. 
+    Modify your theme.scss file as follows:</li>
+  <img class="imagedisplay" src="../../assets/231-2.PNG">
+  <img class="imagedisplay" src="../../assets/231-3.PNG">
+  <li>You can also override some of the default settings such as headline(above) </li>
+</ul>

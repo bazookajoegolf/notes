@@ -1,0 +1,65 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#">Link 1</a>
+      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item href="#">Link 3</a>
+    </mat-nav-list>
+  </mat-sidenav>
+ 
+  <mat-sidenav-content >
+    <mat-toolbar color="primary" >
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+         <mat-toolbar-row >
+          <button mat-raised-button color="warn" [matMenuTriggerFor]="menu">Fundamental Sections</button>
+          <mat-menu #menu="matMenu">
+            <a routerLink = "section1"><button mat-menu-item>Section 1 - Introduction</button></a>
+            <a routerLink = "section2"><button mat-menu-item>Section 2 - Typescript Fundamentals</button></a>
+            <a routerLink = "section3"><button mat-menu-item>Section 3 - Angular Fundamentals</button></a>
+            <a routerLink = "section4"><button mat-menu-item>Section 4 - Displaying Data and Handling Events</button></a>
+            <a routerLink = "section5"><button mat-menu-item>Section 5 - Building Reusable Components</button></a>
+          
+          </mat-menu>
+          <button mat-raised-button color="warn" [matMenuTriggerFor]="menu2">Directives,Templates,Routing,HTTP</button>
+          <mat-menu #menu2="matMenu">
+            <a routerLink = "section6"><button mat-menu-item>Section 6 - Directives</button></a>
+            <a routerLink = "section7"><button mat-menu-item>Section 7 - Template Driven Forms</button></a>
+            <a routerLink = "section8"><button mat-menu-item>Section 8 - Reactive Forms</button></a>
+            <a routerLink = "section9"><button mat-menu-item>Section 9 - Consuming HTTP Services</button></a>
+            <a routerLink = "section10"><button mat-menu-item>Section 10 - Routing and Navigation</button></a>
+         
+          </mat-menu>
+
+          <button mat-raised-button color="warn" [matMenuTriggerFor]="menu3">Authentication, Deployment,Firebase, Material</button>
+          <mat-menu #menu3="matMenu">
+            <a routerLink = "section11"><button mat-menu-item> Section 11 - Authentication and Authorization</button></a>
+            <a routerLink = "section12"><button mat-menu-item> Section 12 - Deployment</button></a>
+            <a routerLink = "section13"><button mat-menu-item> Section 13 - Building Real-time Server-less Apps with Firebase</button></a>
+            <a routerLink = "section15"><button mat-menu-item> Section 15 - Angular Material 2</button></a>
+                     
+          </mat-menu>
+
+          <button mat-raised-button color="warn" [matMenuTriggerFor]="menu4">GitHub, Angular Sites, NodeJS, Articles</button>
+          <mat-menu #menu4="matMenu">
+            <a routerLink = "githubnotes"><button mat-menu-item>Auxillary - GitHub Notes</button></a>
+                              
+          </mat-menu>
+        </mat-toolbar-row>
+     
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

@@ -1,0 +1,127 @@
+<br>
+<h2 >Section 11. Authentication and Authorization</h2>
+<br>
+
+<h3 class= "h3indent">140. Architecture</h3>
+<ul class="nobullet">
+<li>Talked about the client server relationship. Dealing with JWT, how in the token you have information such as name, id etc.</li>
+<li>Mentioned that a token is usually included in http requests (probably in the header)</li>
+</ul>
+
+<h3 class= "h3indent">141. JSON Web Tokens</h3>
+<ul class="nobullet">
+<li>Explaining how JWT works.  3 sections, header, payload , digital signature.  Hackers cannon modify the payload without the signature changing.</li>
+<li>Part of the nodejs course.</li>
+</ul>
+
+
+<h3 class= "h3indent">142. Starter Code</h3>
+<ul class="nobullet">
+<li>Describes how, if you are coding along, to create a fake http service.  Not going to use, will attempt to use api created in node course. </li>
+</ul>
+
+<h3 class= "h3indent">143. Implementation Login</h3>
+<ul class="nobullet">
+<li>Describes the flow from the form to the backend service making the request. First image is the html form submitting the form values</li>
+<img class="imagedisplay" src="../../assets/143-1.PNG">
+<li>This second is our component with the signIn method.  Here it takes the creds' from the form and sends the request via the authService.login method.</li>
+<li>It is looking for a true or false response and will route based on that result.</li>
+<img class="imagedisplay" src="../../assets/143-2.PNG">
+<li>The 3rd image here is our login method that makes a call to our backend API and authenticates. Since this is an  observable we subscribe to the result.</li>
+<li>If there is a result and a token then we store that token in localStorage and return true, otherwise we did not authenticate and we return false.</li>
+<img class="imagedisplay" src="../../assets/143-3.PNG">
+</ul>
+
+
+<h3 class= "h3indent">144. Implementation Logout</h3>
+<ul class="nobullet">
+<li>Logging out does not require any communication with the back end servers.  You simply need to delete the token in your web storage.</li>
+<img class="imagedisplay" src="../../assets/144-1.PNG">
+<img class="imagedisplay" src="../../assets/144-2.PNG">
+</ul>
+
+
+<h3 class= "h3indent">145. Showing or Hiding Elements</h3>
+<ul class="nobullet">
+<li>In order to read jwt tokens in your app you need to install the package:  angular2-jwt (import JwtHelper)</li>
+<li>Below shows you to use some of the methods of JwtHelper.  </li>
+<img class="imagedisplay" src="../../assets/145-1.PNG">
+<li>Instead of implementing as above you can simply below:</li>
+<img class="imagedisplay" src="../../assets/145-2.PNG">
+<li>Below shows how to display links based on if isLoggedIn.</li>
+<img class="imagedisplay" src="../../assets/145-3.PNG">
+</ul>
+
+
+<h3 class= "h3indent">146. Showing or Hiding elements based on the User's Role</h3>
+<ul class="nobullet">
+<li>Below shows how to decode the token and return to the user</li>
+<img class="imagedisplay" src="../../assets/146-1.PNG">
+<li>Below tests if the user is logged in AND the admin property is true.</li>
+<img class="imagedisplay" src="../../assets/146-2.PNG">
+</ul>
+
+<h3 class= "h3indent">147. Gettig the Current User</h3>
+<ul class="nobullet">
+<li>To get the current user you use the decoded token and with interpolation display the user (if the user is logged in)</li>
+<img class="imagedisplay" src="../../assets/147-1.PNG">
+</ul>
+
+
+<h3 class= "h3indent">148. CanActivate Interface</h3>
+<ul class="nobullet">
+<li>The above implementation does not prevent a user from going directly to the admin url. You need Angular to decide if this link is Activated.
+  This is where the CanActivate method comes in. To implement generate a new service (ie: auth-guard.service.ts)
+</li>
+<li>In this example we implement CanActivate.  This requires a canActivate method.</li>
+<img class="imagedisplay" src="../../assets/148-1.PNG">
+<img class="imagedisplay" src="../../assets/148-2.PNG">
+<li>After creating the authGuard you protect routes in the RouteModule in app.module.ts. You also have to add the authGuard to the providers array.</li>
+<img class="imagedisplay" src="../../assets/148-3.PNG">
+</ul>
+
+
+<h3 class= "h3indent">149. Redirecting Users after Logging In</h3>
+<ul class="nobullet">
+<li>This topic deals with redirecting a user back to where they were after they get re-logged in.  I can only think of if you
+  were on a page and your session expired you couldn't refresh or continue until you re-logged in (you are directed to login if you expire)
+  Once you re-log in this topic deals with returning to where the client left off.
+</li>
+<li>(missing part below:  state.url </li>
+<img class="imagedisplay" src="../../assets/149-1.PNG">
+<img class="imagedisplay" src="../../assets/149-2.PNG">
+<img class="imagedisplay" src="../../assets/149-3.PNG">
+</ul>
+
+
+<h3 class= "h3indent">150. Protecting Routes Based on the Users Role</h3>
+<ul class="nobullet">
+<li>Create a new service that acts as the adminAuthguard.  You then and to the authguard array for the route.</li>
+<img class="imagedisplay" src="../../assets/150-1.PNG">
+<img class="imagedisplay" src="../../assets/150-2.PNG">
+<img class="imagedisplay" src="../../assets/150-3.PNG">
+</ul>
+
+
+<h3 class= "h3indent">151. Accessing Protected API Resources</h3>
+<ul class="nobullet">
+<li>Deals with sending authorization in the header.</li>
+<img class="imagedisplay" src="../../assets/151-1.PNG">
+<li>There is a library that you can use that will simplify the above. ** mistake below... the path is wrong for angularjwt</li>
+<img class="imagedisplay" src="../../assets/151-2.PNG">
+<img class="imagedisplay" src="../../assets/151-3.PNG">
+<li>Apparently the authHttp is smart enough to pull the token out of localStorage....we'll see.</li>
+<li> If you need to connect to endpoints that don't have authorization you can construct 2 var's and use the appropriate one.</li>
+<li>Below shows constructing both end points.</li>
+<img class="imagedisplay" src="../../assets/151-4.PNG">
+</ul>
+
+<h3 class= "h3indent">152. Quick Recap</h3>
+<ul class="nobullet">
+    <img class="imagedisplay" src="../../assets/152-1.PNG">
+    <img class="imagedisplay" src="../../assets/152-2.PNG">
+<li></li>
+</ul>
+
+
+

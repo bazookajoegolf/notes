@@ -14,6 +14,7 @@
 <li>To generate a  FormGroup object you need to pass a key value pair of type AbstractControl.  AbstractControl 
   is the parent Component of FormGroup and FormControl (these inherit from AbstractControl.) </li>
   <li>You also have to add ReactiveformsModule to the imports array in app.module.ts  </li>
+  <li>Note: on the form tag class=form-group.  This created an error in the assignment.  should be [formGroup]="form"</li>
 <li>Create a reactive as below:</li>
 <img class="imagedisplay" src="../../assets/92-1.PNG">
 <li>The form requires a [formGroup] directive.  You associate this form with the form you built in the component (above).</li>
@@ -35,56 +36,119 @@
 
 <h3 class= "h3indent">94. Specific Validation Errors. </h3>
 <ul class="nobullet">
-<li> </li>
+<li>This topic deals with having multiple validators.  simply put all your validators in square brackets (an array). </li>
+<img class="imagedisplay" src="../../assets/94-1.PNG">
+<li>The other parth of the topic deals with displaying errors.</li>
+<img class="imagedisplay" src="../../assets/94-2.PNG">
 </ul>
 
 <h3 class= "h3indent">95. Implementing Custom Validation </h3>
 <ul class="nobullet">
-<li> </li>
+<li>when building a custom validator it is suggested that you created a custom validator class.</li>
+<li>Custom validators take a AbstractControl parameter and return either a ValidationErrors or null</li>
+<li>If there is an error you can return an array of key:value pairs or simply a key:value pair.</li>
+<li>If there is no error return null</li>
+<li>Use the static keyword to create a static method.  Allows you to reference the function </li>
+<li>The below example creates a custom validator that makes prevents a username with spaces.</li>
+<li>To use; import the validator and add to your array of validators.</li>
+<li>You may want to add a custom validators folder in your common area of your project.</li>
+
+<img class="imagedisplay" src="../../assets/95-1.PNG">
+<li>Second image simply is the missing part to the above image.</li>
+<img class="imagedisplay" src="../../assets/95-2.PNG">
 </ul>
 
 <h3 class= "h3indent">96. Asynchronous Operations </h3>
 <ul class="nobullet">
-<li> </li>
+<li>This topic simulates an async call to a server. It is going to simulate by putting the function in a setTimeout function. </li>
+<li>The below example does not work because the validator will always return null. See topic 97 for proper way to implement.</li>
+<img class="imagedisplay" src="../../assets/96-1.PNG">
+<li></li>
 </ul>
 
 <h3 class= "h3indent">97. Asynchronous Validators </h3>
 <ul class="nobullet">
-<li> </li>
+<li>Async validators return type is either a Promise or Observable.</li>
+<img class="imagedisplay" src="../../assets/97-1.PNG">
+<li>To implement you should specify a Promise as the return type.</li>
+<img class="imagedisplay" src="../../assets/97-2.PNG">\
+<li>Below is the syntax for a Promise.  Basically it is an optional parameter that takes a Promise that will return void,it's second parameter</li>
+<li>is an optional function that takes any value and returns void.  The overall function returns void.</li>
+<li>Not sure what role reject has in this function.... Probably explained later when calling http services.</li>
+<img class="imagedisplay" src="../../assets/97-3.PNG">
+<li>Implement this async validator by importing it into the component and adding as the 3rd parameter to the formControl.</li>
+<img class="imagedisplay" src="../../assets/97-4.PNG">
+<li></li>
+
+
 </ul>
 
 <h3 class= "h3indent">98. Showing a Loader Image </h3>
 <ul class="nobullet">
-<li> </li>
+<li>You may want a loader spinner to show the user that the app is waiting for data to return. </li>
+<li>To do this you use an *ngIf.  You test against the pending </li>
+<img class="imagedisplay" src="../../assets/95-1.PNG">
+<li>May be better implemented as a blur event or something like not in focus, that way it isn't seen immediately</li>
 </ul>
 
 <h3 class= "h3indent">99. Validating the Form Input Upon Submit </h3>
 <ul class="nobullet">
-<li> </li>
+<li>As above in Template driven forms the formGroup directive in the form tag has an event called ngSubmit.  You can assign a function to the ngSubmit directove. </li>
+<li>This function can test for validity in the form. Below adds ngSubmit to the form tag.</li>
+<img class="imagedisplay" src="../../assets/99-1.PNG">
+<li>Below is what a function would look like if we had an authService that talked to API endpoint.  This examples shows how to</li>
+<li>set an error on the form. </li>
+<img class="imagedisplay" src="../../assets/99-2.PNG">
+<li>Since we don't have this service, this example is simply always going return an invalid submition.</li>
+<img class="imagedisplay" src="../../assets/99-3.PNG">
+<li>To implement add a Div at the top of the form showing the error message based on *ngIf="forms.errors"</li>
+<img class="imagedisplay" src="../../assets/99-4.PNG">
 </ul>
 
 <h3 class= "h3indent">100. Nested Form Groups </h3>
 <ul class="nobullet">
-<li> </li>
+<li>You can have nested form groups inside other formgroups...(not sure why at this point). See how to implement below.</li>
+<img class="imagedisplay" src="../../assets/100-1.PNG">
+<li>In the above example you access username with account.username.  In your .html you can wrap your inputs in a div and </li>
+<li>give that div the directive [formGroupName]="username".  This will allow you to retain the formControlNames from before (ie:username)</li>
+<img class="imagedisplay" src="../../assets/100-2.PNG">
 </ul>
 
 <h3 class= "h3indent">101. FormArray </h3>
 <ul class="nobullet">
-<li> </li>
+<li>A way to build dynamic formControls or FormGroups dynamically....not sure why this is needed but could be handy. </li>
+<li>Create using the FormArray: see below. The screen below shows how to create a keyup.enter event and send the local var #topic to that function.</li>
+<img class="imagedisplay" src="../../assets/101-1.PNG">
+<li>Below is the function that will create the new FormControls (you could also create a new formGroup</li>
+<li>the get topics() makes the syntax easier to read.</li>
+<img class="imagedisplay" src="../../assets/101-2.PNG">
+<li>Below is how we display the new FormControl Items (value) to the html. It also includes a remoteTopic method that allows for a click event to remove the added topic.</li>
+<img class="imagedisplay" src="../../assets/101-3.PNG">
+
+
 </ul>
 
 <h3 class= "h3indent">102. FormBuilder </h3>
 <ul class="nobullet">
-<li> </li>
+<li>Formbuilder is a way to build forms in a simpler way  (debateable) </li>
+<li>Below would be the way we've done up to this point.</li>
+<img class="imagedisplay" src="../../assets/102-1.PNG">
+<li>Below is the formbuilder way. (note: the parameters to a formControl are added to this image.</li>
+<img class="imagedisplay" src="../../assets/102-2.PNG">
 </ul>
 
 <h3 class= "h3indent">103. Quick Recap </h3>
 <ul class="nobullet">
-<li> </li>
+<li>Simple recap. </li>
 </ul>
 
 <h3 class= "h3indent">Assignment: Change Password Form </h3>
 <ul class="nobullet">
  <app-section8-lab></app-section8-lab>
-<li> </li>
+<li>Below shows the code from the instructor: </li>
+<img class="imagedisplay" src="../../assets/103-1.PNG">
+<img class="imagedisplay" src="../../assets/103-2.PNG">
+<img class="imagedisplay" style="width:900px"    src="../../assets/103-3.PNG">
+
+
 </ul>

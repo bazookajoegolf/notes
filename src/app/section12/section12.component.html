@@ -1,0 +1,145 @@
+<br>
+<h2 >Section 12. Deployment</h2>
+<br>
+
+<h3 class= "h3indent">154. Preparing for Deployment</h3>
+<ul class="nobullet">
+<li>Describes optimization techniques. All these techniques are optimized in the ng build -prod command</li>
+<img class="imagedisplay" src="../../assets/154-1.PNG">
+</ul>
+
+<h3 class= "h3indent">155. JIT vs AOT Compilation</h3>
+<ul class="nobullet">
+<li>Describes the benefits of AOT.  </li>
+<img class="imagedisplay" src="../../assets/155-1.PNG">
+</ul>
+
+<h3 class= "h3indent">156. Angular Compiler in Action</h3>
+<ul class="nobullet">
+<li>Not sure about this.  Showing how to use the Angular Compiler.  Runs from node_modules/.bin/ngc</li>
+<li>Just a demo.  Errors are caught during complication</li>
+</ul>
+
+<h3 class= "h3indent">157. Building Applications with Angular CLI</h3>
+<ul class="nobullet">
+<li>To create a build you run:   ng build --prod</li>
+<li>If you were to run without the --prod, the build creates bundles and adds these javascript bundles to the index.html file</li>
+<li>This would be an example of JIT version of your web page.  The compiler is a part of the bundles. No optimization has occured.</li>
+<li>The build process creates files in the  dist   folder.</li>
+</ul>
+
+<h3 class= "h3indent">158. Environments</h3>
+<ul class="nobullet">
+<li>Looks at the environments folder:</li>
+<li>There are 2 files: environment.ts and environment.prod.ts.   You can add these files to your project when you want to specify
+  differences in prod and dev.  When importing always reference environments.ts (not .prod.). In this file you can, as in this example
+  have a different background based on which env you are running in (prod or dev).
+</li>
+<li>When running ng serve the default is to run in development.  To run in prod run ng server --prod</li>
+</ul>
+
+<h3 class= "h3indent">159. Adding Custom Environments</h3>
+<ul class="nobullet">
+<li>You can create other environments, such as test.  Create environment file such as environment.test.ts.  You need to register This
+  new env file in .angular-cli.json "enviroments key".  Remember to set the prod value to false.
+</li>
+<li>To run:  ng server --environment=test.  Only the dev environment has hot module replacement.  If you make changes, ng serve will not update.
+  You will have to stop ng serve and restart.
+</li>
+</ul>
+
+<h3 class= "h3indent">160. Linting with Angular CLI</h3>
+<ul class="nobullet">
+<li>You can use standards to your coding and then run the linter to check for errors.  Use TSLint.</li>
+<li>TSLint is installed by default. You can run ng lint.  Creates an error report.</li>
+<li>You can have rules fixed by running ng lint --fix</li>
+</ul>
+
+<h3 class= "h3indent">161. Linting in VSCode</h3>
+<ul class="nobullet">
+<li>Install the tslint extension. Issues will be underlined and give you a hint. </li>
+<li>Shift-Ctrl-P gets you the command pallette.  Type tslint.. you will get an intellisense list of fixes.</li>
+</ul>
+
+<h3 class= "h3indent">162. Other Deployment Options</h3>
+<ul class="nobullet">
+<li>Lays out some of the options to deploy such as GitHub Pages(no backend), Firebase (has a backend), or Heroku (Azure... a little more complicated).</li>
+</ul>
+
+<h3 class= "h3indent">163. Deploying to GitHub Pages</h3>
+<ul class="nobullet">
+<li>Goto pages.github.com.  Uses your github repository.</li>
+<li>Go to github.com and create a repository.  Follow the instructions to upload your project to the github repository.</li>
+<img class="imagedisplay" src="../../assets/163-1.PNG">
+<li>install globally npm i -g angular-cli-ghpages</li>
+<li>When building your app type:  ng build --prod --base-href "https://bazookajoegolf.github.io/repository-name/"  (trailing slash is important) </li>
+<li>the --base-ref shows where the base reference is.</li>
+<li>deploy using :  ngh  at the command prompt.  ngh --no-silent to see if there are errors.  You could get permission issues unless you use sudo.</li>
+<li>Goto https://bazookajoegolf.github.io/your-repository</li>
+<li>Simplify by adding to the package.json file.  </li>
+<img class="imagedisplay" src="../../assets/163-2.PNG">
+<img class="imagedisplay" src="../../assets/163-3.PNG">
+<li>To run the custom command run:  npm run deploy:gh</li>
+</ul>
+
+<h3 class= "h3indent">164. Deploying to Firebase</h3>
+<ul class="nobullet">
+<img class="imagedisplay" src="../../assets/164-1.PNG">
+<li>Go to https://console.firebase.google.com and login and create a new project.</li>
+<li>Need firebase tools.  npm i -g firebase-tools</li>
+<li>run:  firebase login    and login</li>
+<li>run:  firebase init .  In the wizard select hosting, choose your app.</li>
+<li>Open firebase.json and type the following:</li>
+<img class="imagedisplay" src="../../assets/164-2.PNG">
+<li>To build run:  ng build --prod</li>
+<li>Deploy to firebase by running firebase deploy .  After deploying it should prompt you with the url.</li>
+<li>You will get an error if you refresh index.html.  this is because firebase thinks the url is a pointer to a page instead of an "Angular Page" </li>
+<li>To fix modify your firebase.json file and add : </li>
+<img class="imagedisplay" src="../../assets/164-3.PNG">
+<li>You can create a custom script again in package.json under "scripts" type:  "deploy:firebase": "ng build --prod && firebase deploy</li>
+<li>To deploy run: npm run deploy:firebase</li>
+</ul>
+
+<h3 class= "h3indent">165. Heroku</h3>
+<ul class="nobullet">
+<li>A PaaS service. You can deploy front end and backend to Heroku. </li>
+<li>https://devcenter.heroku.com/.... you're looking to download and install there client cli.</li>
+</ul>
+
+<h3 class= "h3indent">166. Deploying to Heroku</h3>
+<ul class="nobullet">
+<li>Check that the cli is installed by running heroku --version</li>
+<li>run: heroku login</li>
+<li>heroku create.  If you don't enter a create (must be unique) name heroku will do this for you. After it will display the url. </li>
+<li>You need to modify package.json.  You need to move the 2 angular compiler lines from devDependenies to the dependencies object. </li>
+<img class="imagedisplay" src="../../assets/166-1.PNG">
+<li>You also need to move typescript to dependencies</li>
+<li>Add a postinstall item to the scripts object.  </li>
+<img class="imagedisplay" src="../../assets/166-2.PNG">
+<li>In this example we are using express as a part of the backend.  To support you need to install:  npm i express --save</li>
+<li>To run this app we have to run in the context of a node server.  To do this you need to modify the start key to run Node</li>
+<img class="imagedisplay" src="../../assets/166-3.PNG">
+<li>Our Node server.js looks as follows:</li>
+<img class="imagedisplay" src="../../assets/166-4.PNG">
+<li>You then have to commit all files and commit</li>
+<img class="imagedisplay" src="../../assets/166-5.PNG">
+</ul>
+
+<h3 class= "h3indent">167. Engines</h3>
+<ul class="nobullet">
+<li>To make sure that Heroku is using the same version of Node  and npm  you've developed on you should add an "engines" object tothe bottom
+  of your package.json file.  To find out the version of node and npm you've been using run node --version : npm --version.
+</li>
+<img class="imagedisplay" src="../../assets/167-1.PNG">
+</ul>
+
+<h3 class= "h3indent">168. Exercise</h3>
+<ul class="nobullet">
+<li>Goes through deploying to all 3 hosts.</li>
+</ul>
+
+
+
+
+
+    

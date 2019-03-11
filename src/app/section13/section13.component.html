@@ -1,0 +1,115 @@
+<br>
+<h2 >Section 13. Building Real-time Server-Less apps with Firebase</h2>
+<br>
+
+
+
+
+<h3 class= "h3indent">170. What is Firebase</h3>
+<ul class="nobullet">
+<li>A fast backend suite. Firebase is free to start and has small costs as your project grows.</li>
+<img class="imagedisplay" src="../../assets/170-1.PNG">
+</ul>
+
+<h3 class= "h3indent">171. Your first Firebase Project</h3>
+<ul class="nobullet">
+<li>firebase.google.com, create an account. then go to console.firebase.google.com.   Create a project</li>
+
+</ul>
+
+<h3 class= "h3indent">172. Working with Firebase Databases</h3>
+<ul class="nobullet">
+<li>An example of the structure of a firebase database.  Note: reporting is not the best in noSql db's</li>
+<img class="imagedisplay" src="../../assets/172-1.PNG">
+</ul>
+
+<h3 class= "h3indent">173. Installing Firebase</h3>
+<ul class="nobullet">
+<li>Create a new project ng new firebase-demo</li>
+<li>Need to install  npm install firebase angularfire2 --save</li>
+<li>Go to tne environment.ts . To find what to add go to the settings of your firebase app and copy the properties for the connection string</li>
+<img class="imagedisplay" src="../../assets/173-1.PNG">
+<li>Add this to environment.ts</li>
+<img class="imagedisplay" src="../../assets/173-2.PNG">
+<li>in app.module.ts you need to import the AngularFireModule, AngularFireDatabaseModule and the environment filre add to the imports array</li>
+<li>Note: text missing on import AngularFireDatabaseModule from 'angular2/database</li>
+<img class="imagedisplay" src="../../assets/173-3.PNG">
+<img class="imagedisplay" src="../../assets/173-4.PNG">
+</ul>
+
+<h3 class= "h3indent">174. Reading Lists</h3>
+<ul class="nobullet">
+<li>After import AngularFireDatabase into your component.</li>
+<img class="imagedisplay" src="../../assets/174-1.PNG">
+<img class="imagedisplay" src="../../assets/174-2.PNG">
+<li>Note: you will need to give permission to read this information. To modify, in the firebase console, look for rules,and modify ".read": true</li>
+<img class="imagedisplay" src="../../assets/174-3.PNG">
+<li>Above is a way to display the list of courses.. (note: course 3 has been modified to match course 1 and 2)</li>
+</ul>
+
+<h3 class= "h3indent">175. A Real-time Database</h3>
+<ul class="nobullet">
+<li>The connection is realtime, therefore if you modify the data in the console, the changes will be reflected immediately in your program.</li>
+</ul>
+
+<h3 class= "h3indent">176. Observables and Memory Leaks</h3>
+<ul class="nobullet">
+<li>Memory leaks can occur if you have many components talking to the db</li>
+</ul>
+
+<h3 class= "h3indent">177. Unsubscribing from Subscriptions</h3>
+<ul class="nobullet">
+<li>Need to use onInit and OnDestroy to clean up memory when a component is destroyed. </li>
+<img class="imagedisplay" src="../../assets/177-1.PNG">
+<img class="imagedisplay" src="../../assets/177-2.PNG">
+<li>This example creates a button to simulate the ngDestroy to the component.</li>
+<img class="imagedisplay" src="../../assets/177-3.PNG">
+</ul>
+
+<h3 class= "h3indent">178. Async Pipe</h3>
+<ul class="nobullet">
+<li>You can use a pipe to emulate what was done in the above  example. The async Pipe handles the subscription and unsubscription, cleaning the code needed to implement</li>
+<img class="imagedisplay" src="../../assets/178-1.PNG">
+<img class="imagedisplay" src="../../assets/178-2.PNG">
+<li></li>
+</ul>
+
+<h3 class= "h3indent">179. Reading an Object</h3>
+<ul class="nobullet">
+<li>Below is an example of reading an object built in Firebase</li>
+<img class="imagedisplay" src="../../assets/179-1.PNG">
+<img class="imagedisplay" src="../../assets/179-2.PNG">
+<img class="imagedisplay" src="../../assets/179-3.PNG">
+</ul>
+
+<h3 class= "h3indent">180. As Keyword</h3>
+<ul class="nobullet">
+<li>A way of simplifying your code by substituting the author$ | async with the workd author</li>
+<img class="imagedisplay" src="../../assets/180-1.PNG">
+</ul>
+
+<h3 class= "h3indent">181. Adding an Object</h3>
+<ul class="nobullet">
+<li>Use the push method to update firebase.  You will need to give everyone write permission. Not looking like a way to go.</li>
+<img class="imagedisplay" src="../../assets/181-1.PNG">
+<img class="imagedisplay" src="../../assets/181-2.PNG">
+</ul>
+
+<h3 class= "h3indent">182. Updating an Object</h3>
+<ul class="nobullet">
+<li>There are 2 methods, set and update.  Set updates the whole object, while update updates only what is in the query.</li>
+<img class="imagedisplay" src="../../assets/182-1.PNG">
+<img class="imagedisplay" src="../../assets/182-2.PNG">
+</ul>
+
+<h3 class= "h3indent">183. Removing an Object</h3>
+<ul class="nobullet">
+<li>Similar to update except we use the remove method.</li>
+<img class="imagedisplay" src="../../assets/183-1.PNG">
+</ul>
+
+<h3 class= "h3indent">184. Additional Resources</h3>
+<ul class="nobullet">
+<li>Mosh has another course if you want to look at further firebase tasks.</li>
+<img class="imagedisplay" src="../../assets/184-1.PNG">
+</ul>

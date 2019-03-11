@@ -1,0 +1,36 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary  {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.stickyy {
+  position: sticky;
+  top: 0 ;
+  z-index: 1 ;
+}
+
+.mat-menu-item  {
+  background-color: coral;
+}
+
+.cdk-overlay-pane {
+  background-color: coral;
+}
+.mat-raised-button {
+  margin-left: 30px;
+  margin-right: 30px;
+}

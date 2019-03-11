@@ -1,3 +1,128 @@
-<p>
-  section10 works!
-</p>
+<br>
+<h2 >Section 10. Routing and Navigation</h2>
+<br>
+
+<h3 class= "h3indent">126. Routing in a Nutshell</h3>
+<ul class="nobullet">
+<li> Needs the Router module. Steps needed: Configure the routes, Add a router outlet, add links.</li>
+</ul>
+
+<h3 class= "h3indent">127. Configuring Routes</h3>
+<ul class="nobullet">
+<li>You configure routes in the app.module.ts file. Need to import the RouterModule.  Import on the imports array. The order of the routes matters.  
+  You should put more specific routes to the top.
+</li>
+  <img class="imagedisplay" src="../../assets/127-1.PNG"> 
+  <img class="imagedisplay" src="../../assets/127-2.PNG">
+  <img class="imagedisplay" src="../../assets/127-3.PNG">
+
+<li></li>
+</ul>
+
+<h3 class= "h3indent">128. RouterOutlet</h3>
+<ul class="nobullet">
+<li>In order for routing to work you need to put the router-outlet tag in your main component .html page </li>
+<img class="imagedisplay" src="../../assets/128-1.PNG"> 
+</ul>
+
+<h3 class= "h3indent">129. RouterLink</h3>
+<ul class="nobullet">
+<li> With Angular apps you don't use standard href= for references to .html pages. Doing so you would re-download the entire web page which is not 
+  what we want to do in a SPA.   </li>
+<li>With Angular you replace the href= with routerLink=</li>  
+<li>When creating dynamic links you create routerLinks as a property binding and reference parameters in an Array. The first value
+  is the path, and the following values are the router parameters.
+</li>
+<img class="imagedisplay" src="../../assets/129-1.PNG"> 
+</ul>
+
+<h3 class= "h3indent">130. RouterLinkActive</h3>
+<ul class="nobullet">
+<li>Up to now when we click a link the active link does not change to the clicked item.  This is where we need RouterLinkAcive. </li>
+<li>You can add any classes you need here as long as they are in the quotes.</li>
+<img class="imagedisplay" src="../../assets/130-1.PNG"> 
+</ul>
+
+<h3 class= "h3indent">131. Getting the Route Parameters</h3>
+<ul class="nobullet">
+<li>To get route parameters you have to inject ActivatedRoute from @angular/router and add to the constructor</li>
+<li>Below shows how to get the value from the route paramter.  Note the + sign... it is a way of converting a string to an integer</li>
+<li>also: There are other methods besides get (ie: getAll, has, )</li>
+<img class="imagedisplay" src="../../assets/131-1.PNG">
+</ul>
+
+<h3 class= "h3indent">132. Why Route Parameters are Observables</h3>
+<ul class="nobullet">
+<li>The point of this topic is to why you may need to use the subscription method of getting route params. The main point is that IF your
+component allows naviagtion within the component you should use the observable method.  If you don't, when you click a link that is to 
+navigate within the component....ngOnInit will NOT fire.  ngOninit only triggers when the component is created which only happens when
+a component is created and NOT when navigating within the component.  
+</li>
+<li>If you are sure you will not be navigating within your own component you can use the snapshot method below.</li>
+<img class="imagedisplay" src="../../assets/132-1.PNG">
+</ul>
+
+<h3 class= "h3indent">133. Routes with Multiple Parameters</h3>
+<ul class="nobullet">
+<li>Places like Stackoverflow add extra parameters to help with SEO.</li>
+<li>Below shows what you need to do in the .html page, app.module.ts forRoot routes.</li>
+<img class="imagedisplay" src="../../assets/133-1.PNG">
+<img class="imagedisplay" src="../../assets/133-2.PNG">
+
+
+</ul>
+
+<h3 class= "h3indent">134. Query Parameters</h3>
+<ul class="nobullet">
+<li>Query parameters are considered optional parameters to your routing.  Things here could be page number, sort order etc.
+  Usually these values follow a ?  (ie: url:4200/followers?page=1&order=newest) </li>
+  <li>To add to your url add the queryParams property</li>
+  <img class="imagedisplay" src="../../assets/134-2.PNG">
+  <li>Your component uses queryParamMap... again you can use snapshot method. But in most cases if your query param is a page number
+    chances are you are going to be passing parameters within the same component.  therefore you will need to subscribe.
+  </li>
+  <img class="imagedisplay" src="../../assets/134-1.PNG">
+
+</ul>
+
+<h3 class= "h3indent">135. Subscribing to Multiple Observables</h3>
+<ul class="nobullet">
+<li> In order to combine observables you need to import Observable and combineLatest</li>
+<img class="imagedisplay" src="../../assets/135-1.PNG">
+<li>This allows you to combine observables into one call.  </li>
+<img class="imagedisplay" src="../../assets/135-2.PNG">
+</ul>
+
+<h3 class= "h3indent">136. The SwitchMap Operator</h3>
+<ul class="nobullet">
+<li>In this example you need to import some operators. </li>
+<img class="imagedisplay" src="../../assets/136-1.PNG">
+<li>Best to review this section if you need info.... hard to follow but basically with switchMap it returns the correct type compared
+  to the map operator.  Then subscribe will have the proper values to work with.
+</li>
+<img class="imagedisplay" src="../../assets/136-2.PNG">
+</ul>
+
+<h3 class= "h3indent">137. Programmatic Navigation</h3>
+<ul class="nobullet">
+<li> This section shows how to use a method to get different url's</li>
+<img class="imagedisplay" src="../../assets/137-1.PNG">
+</ul>
+
+<h3 class= "h3indent">Assignment 9: Blog Archives.</h3>
+<ul class="nobullet">
+<li>Create a simple app with a home page with 3 links that go to separate pages. Use 2 parameters, 1 for year, and 2 for day. 
+  If a parameter is missing show a file not found page. 
+</li>
+<li>app.module.ts.  Shows the routes for the site.</li>
+<img class="imagedisplay" src="../../assets/138-1.PNG">
+<li>home.component.ts</li>
+<img class="imagedisplay" src="../../assets/138-2.PNG">
+<li>home.component.html.  This builds the links using ngFor dynamically using the array in the component.</li>
+<img class="imagedisplay" src="../../assets/138-3.PNG">
+<li>archive.component.ts.  Takes non-observable parameters and assigns to local values.</li>
+<img class="imagedisplay" src="../../assets/138-4.PNG">
+<li>archive.component.html. displays year and view All button</li>
+<img class="imagedisplay" src="../../assets/138-5.PNG">
+
+</ul>
